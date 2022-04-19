@@ -41,15 +41,15 @@ function generateProducts(product) {
                 <i class="fa-solid fa-thumbs-up fa-xl like" ></i>
             </a>
         </div>
+        <div class="likes_counter">
+          Piace a <b class="js_likes">${parseInt(product.likes)}</b> persone
+      </div>
 
         </div>
         `   
     }
     
     /*   DA SPOSTARE SU UNA VOLTA CAPITO COME IMPLEMENTARLO CON .increaseLikes()
-          <div class="likes_counter">
-            Piace a <b class="js_likes">${parseInt(product.likes)}</b> persone
-        </div>
          */
         
 
@@ -112,12 +112,26 @@ document.querySelectorAll('.favourite').forEach(element => {
     })
 })
 
-document.querySelectorAll('.like').forEach(element  => {
-    
-    element.addEventListener('click', function () {
-        element.classList.add('color_blue')
-      
-       
+
+let counterElement = document.querySelectorAll('.js_likes')
+
+const likeButton = document.querySelectorAll('.like_button')
+likeButton.forEach((element, index) => {
+    // console.log(index);
+    element.addEventListener('click', function (event) {
+        event.preventDefault()
+        // console.log(this);
+        this.classList.add('color_blue')
+        const likesNumber = products[index].increaseLikes()
+        
+        if(this.classList.contains('color_blue')) {
+            counterElement[index].innerHTML = likesNumber
+        } else {
+            counterElement[index].innerHTML = likesNumber - 1
+        }
+        
+        
+        
     })
 })
 

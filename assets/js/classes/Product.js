@@ -26,7 +26,7 @@
     }
     // Class methods
      increaseLikes(){
-         return element += 1
+         return this.likes += 1
      }
 
 }
