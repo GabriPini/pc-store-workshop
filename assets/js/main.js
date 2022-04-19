@@ -49,9 +49,7 @@ function generateProducts(product) {
         `   
     }
     
-    /*   DA SPOSTARE SU UNA VOLTA CAPITO COME IMPLEMENTARLO CON .increaseLikes()
-         */
-        
+ 
 
         /**
          * Generate Products cards inside the dom element 
